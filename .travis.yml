@@ -16,7 +16,7 @@ after_success:
   - docker build -t aloksinghk/multi-server ./server
   - docker build -t aloksinghk/multi-worker ./worker
     # Log in to Docker Cli 
-  - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # take those images and push them to docker hub
   - docker push aloksinghk/multi-client
   - docker push aloksinghk/multi-nginx
