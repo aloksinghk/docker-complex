@@ -15,9 +15,9 @@ after_success:
   - docker build -t aloksinghk/multi-nginx ./nginx
   - docker build -t aloksinghk/multi-server ./server
   - docker build -t aloksinghk/multi-worker ./worker
-    # Log in to Docker Cli 
+  # Log in to Docker Cli 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-    # take those images and push them to docker hub
+  # take those images and push them to docker hub
   - docker push aloksinghk/multi-client
   - docker push aloksinghk/multi-nginx
   - docker push aloksinghk/multi-server
@@ -31,7 +31,7 @@ deploy:
   bucket_name: elasticbeanstalk-ap-south-1-546738326534
   bucket_path: docker-multi
   on:
-     branch: master
-     access_key_id: "$AWS_ACCESS_KEY"
-     secret_access_key:
-       secure: $AWS_SECRET_KEY
+    branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key:
+      secure: $AWS_SECRET_KEY
